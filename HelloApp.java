@@ -10,33 +10,19 @@
  * - If names are provided, it will display "Hello, [Name1], [Name2], ...!" to the console.
  * - If no names are provided, it will display "Hello, World!"
  *
- * @author Developer Name
- * @version 6.0
+ * @author Developer
+ * @version 7.0
  * @since UC1
  */
 public class HelloApp {
-
     public static void main(String[] args) {
 
-        String message;
+        String names = "World";
 
-        if (args.length == 0) {
-            // No arguments — default message
-            message = "Hello, World!";
-        } else {
-            // Build name list using StringBuilder, appending ", " after each name
-            StringBuilder nameBuilder = new StringBuilder();
-
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // Remove the trailing ", " (last 2 characters) using substring()
-            String names = nameBuilder.substring(0, nameBuilder.length() - 2);
-
-            message = "Hello, " + names + "!";
+        if (args.length > 0) {
+            names = String.join(", ", args);
         }
 
-        System.out.println(message);
+        System.out.println("Hello, " + names + "!");
     }
 }
